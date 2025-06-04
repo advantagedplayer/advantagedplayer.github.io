@@ -1,0 +1,79 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hi-Lo Card Counter</title>
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Start Screen -->
+    <div id="start-screen" class="screen active">
+      <h1>Advantaged Player Trainer</h1>
+      <div class="high-score">High Score: <span id="high-score">0</span></div>
+      <div class="menu">
+        <button class="menu-btn" data-screen="game" data-mode="simple">Practice Mode<br><small>Count visible cards only</small></button>
+        <button class="menu-btn" data-screen="game" data-mode="running">Running Count<br><small>Keep track between rounds</small></button>
+        <button class="menu-btn" data-screen="rules">How to Play</button>
+      </div>
+    </div>
+
+    <!-- Rules Screen -->
+    <div id="rules-screen" class="screen">
+      <h2>How to Count Cards</h2>
+      <div class="rules-content">
+        <p>Hi-Lo is a simple card counting system:</p>
+        <ul>
+          <li>Cards 2-6: Count as +1</li>
+          <li>Cards 7-9: Count as 0</li>
+          <li>Cards 10-A: Count as -1</li>
+        </ul>
+        <p>Practice by counting the cards shown and selecting the correct total.</p>
+        <p>Build streaks to multiply your score!</p>
+      </div>
+      <button class="back-btn" data-screen="start">Back to Menu</button>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" class="screen">
+      <div class="game-header">
+        <button class="back-btn small" data-screen="start">⌂</button>
+        <div class="deck-status">Cards: <span id="cards-remaining">52</span>/52</div>
+        <div class="score">Score: <span id="score">0</span></div>
+        <div class="streak">Streak: <span id="streak">0</span>x</div>
+      </div>
+      
+      <div class="game-settings">
+        <button class="card-count-btn active" data-cards="2">2 Cards</button>
+        <button class="card-count-btn" data-cards="4">4 Cards</button>
+        <button class="card-count-btn" data-cards="6">6 Cards</button>
+        <div id="running-count-display" class="hidden">Running: <span id="running-count">0</span></div>
+      </div>
+
+      <div class="cards-container" id="cards"></div>
+      
+      <div class="controls">
+        <div class="answers">
+          <button data-value="-4">-4</button>
+          <button data-value="-3">-3</button>
+          <button data-value="-2">-2</button>
+          <button data-value="-1">-1</button>
+          <button data-value="0">0</button>
+          <button data-value="1">+1</button>
+          <button data-value="2">+2</button>
+          <button data-value="3">+3</button>
+          <button data-value="4">+4</button>
+          <button class="hint-button">?</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="feedback-overlay" class="feedback-overlay">
+      <div id="feedback-icon" class="feedback-icon"></div>
+    </div>
+
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
